@@ -72,7 +72,14 @@ window.addEventListener('DOMContentLoaded', event => {
         "Expert in PHP & Laravel",
         "Skilled with Vue.js",
         "Passionate about creating elegant web applications",
+        "Experienced in working with relational databases like MySQL and PostgreSQL",
+        "Proficient in API development for robust backend systems",
+        "Familiar with creating scalable and maintainable applications",
+        "Efficient in implementing CI/CD pipelines for seamless deployments",
+        "Hands-on experience with Docker for containerized environments",
+        "Committed to optimizing application performance and user experience",
     ];
+
 
     let currentTextIndex = 0;
     let currentCharIndex = 0;
