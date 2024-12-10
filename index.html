@@ -13,7 +13,9 @@
           type="text/css"/>
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
+
 <body id="page-top">
+
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#page-top">Home</a>
@@ -36,24 +38,26 @@
     </div>
 </nav>
 
-<header class="masthead bg-primary text-white text-center">
+<header class="masthead bg-primary text-white text-center" id="masthead">
     <div class="container d-flex align-items-center flex-column">
         <img alt="Sandeep Pant"
              class="masthead-avatar mb-5 rounded-circle"
              src="assets/img/avataaars.png"
              style="width: 300px; height: 300px; object-fit: cover;" />
-        <h1 class="masthead-heading text-uppercase mb-0">Sandeep Pant</h1>
+        <h1 class="masthead-heading text-uppercase mb-0" id="header-title">Sandeep Pant</h1>
         <div class="divider-custom divider-light">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <p class="masthead-subheading font-weight-light mb-0">Full Stack Developer with expertise in PHP, Laravel, and Vue.js</p>
+        <p class="masthead-subheading font-weight-light mb-0" id="header-subtitle">Full Stack Developer with expertise in PHP, Laravel, and Vue.js</p>
 
-        <a href="assets/sandeep_cv.pdf" download="My_CV.pdf" class="btn btn-danger">Download My CV</a>
+        <a href="assets/sandeep_cv.pdf"
+           download="My_CV.pdf"
+           class="btn btn-warning mt-4"
+           id="cv-btn">Download My CV</a>
     </div>
 </header>
-
 
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
@@ -122,8 +126,6 @@
     </div>
 </section>
 
-<!--About Section-->
-
 <section class="page-section bg-primary text-white mb-0" id="about">
     <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-white">About Me</h2>
@@ -154,8 +156,6 @@
         </div>
     </div>
 </section>
-
-<!--About section Ends Here-->
 
 <section class="page-section" id="contact">
     <div class="container">
@@ -260,8 +260,6 @@
     </div>
 </section>
 
-
-<!--Footer Section-->
 <footer class="footer text-center">
     <div class="container">
         <div class="row">
@@ -290,7 +288,6 @@
     </div>
 </footer>
 
-<!-- Copyright Section-->
 <div class="copyright py-4 text-center text-white">
     <div class="container"><small>Copyright &copy; Sandeep Pant @2024</small></div>
 </div>
