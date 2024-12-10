@@ -12666,10 +12666,7 @@ html {
     }
 }
 
-.animate-subtitle {
-  animation: fadeIn 2s ease-out;
-  animation-delay: 0.5s;
-}
+
 
 @keyframes slideIn {
   0% {
@@ -12701,15 +12698,6 @@ html {
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .animate-button {
   animation: bounce 1s ease infinite;
 }
@@ -12726,7 +12714,7 @@ html {
   }
 }
 
-/* Hover effect for the button */
+
 .btn-danger {
   transition: transform 0.3s ease;
 }
@@ -12747,4 +12735,40 @@ h4.card-title {
     color: #007bff;
     font-weight: bold;
 }
+
+.code-editor {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0dcaf0; /* Bootstrap primary color */
+}
+
+.cursor {
+    width: 5px;
+    height: 20px;
+    position: absolute;
+    background-color: #0dcaf0;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
 

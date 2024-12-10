@@ -56,14 +56,50 @@ window.addEventListener('DOMContentLoaded', event => {
 
         setTimeout(() => {
             this.classList.remove('animate-background');
-        }, 1000);  // Adjust the timeout duration as per the animation length
+        }, 1000);
     });
 
     window.onload = function () {
         document.getElementById('header-title').classList.add('animate-title');
-        document.getElementById('header-subtitle').classList.add('animate-subtitle');
         document.getElementById('cv-btn').classList.add('animate-button');
     };
+
+    const typedText = document.getElementById("typed-text");
+    const cursor = document.querySelector(".cursor");
+
+    const texts = [
+        "Full Stack Developer",
+        "Expert in PHP & Laravel",
+        "Skilled with Vue.js",
+        "Passionate about creating elegant web applications",
+    ];
+
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+
+    function typeEffect() {
+        if (currentCharIndex < texts[currentTextIndex].length) {
+            typedText.textContent += texts[currentTextIndex].charAt(currentCharIndex);
+            currentCharIndex++;
+            setTimeout(typeEffect, 100);
+        } else {
+            setTimeout(deleteEffect, 1500);
+        }
+    }
+
+    function deleteEffect() {
+        if (currentCharIndex > 0) {
+            typedText.textContent = texts[currentTextIndex].substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+            setTimeout(deleteEffect, 50);
+        } else {
+            currentTextIndex = (currentTextIndex + 1) % texts.length;
+            setTimeout(typeEffect, 200);
+        }
+    }
+
+    typeEffect();
+
 
 });
 
