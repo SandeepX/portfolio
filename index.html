@@ -326,6 +326,12 @@
                                 <h4 class="text-center text-success fw-bold mb-4">💌 Contact Me</h4>
                                 <form id="contactForm">
                                     <div class="mb-3">
+                                        <label class="form-label text-muted fw-semibold" for="fullName">Name:</label>
+                                        <input class="form-control border rounded-pill" id="fullName" placeholder="Enter your full name"
+                                               required type="text">
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label class="form-label text-muted fw-semibold" for="mail">Email:</label>
                                         <input class="form-control border rounded-pill" id="mail" placeholder="Enter your email"
                                                required type="email">
@@ -398,6 +404,7 @@
 
         const mail = document.getElementById("mail");
         const msg = document.getElementById("msg");
+        const name = document.getElementById("fullName");
         const submitButton = document.getElementById("submit");
         const loader = document.getElementById("loader");
 
@@ -411,9 +418,9 @@
                         return;
                     }
                     const templateParams = {
-                        myname: "Sandeep Pant",
+                        myname: name.value,
                         name: mail.value,
-                        message: msg.value
+                        message: msg.value,
                     };
 
                     await emailjs.send('service_6tf4zbn', 'template_76d44zd', templateParams)

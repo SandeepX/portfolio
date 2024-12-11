@@ -12795,10 +12795,13 @@ pre {
     border:transparent ;
     border-bottom:3px solid blue;
     outline:none;
-    width:12rem;
+    width:30rem;
 }
 #mail{
-    width:12rem;
+    width:20rem;
+}
+#fullName{
+    width:20rem;
 }
 #submit{
     text-align:center;
