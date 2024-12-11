@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
           type="text/css"/>
     <link href="css/styles.css" rel="stylesheet"/>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body id="page-top">
@@ -341,6 +343,11 @@
                                         <textarea class="form-control border rounded" id="msg" placeholder="Write your message"
                                                   required rows="5"></textarea>
                                     </div>
+
+                                    <div class="g-recaptcha mb-3"
+                                         data-sitekey="6LcRT5gqAAAAAOcT5zenUy_ysFGmO1kJnG9jwvo7">
+                                    </div>
+
                                     <div class="text-center">
                                         <button class="btn btn-primary rounded-pill px-4 py-2 shadow-sm" id="submit"
                                                 type="button">
@@ -398,6 +405,7 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         emailjs.init("RzembHoliPAmdVT-y");
@@ -409,38 +417,43 @@
         const loader = document.getElementById("loader");
 
         submitButton.addEventListener("click", async () => {
-            submitButton.disabled = true;
-            loader.classList.remove('d-none');
-            try {
-                if (mail.value.trim() !== "" && msg.value.trim() !== "") {
-                    if (!validateEmail(mail.value)) {
-                        alert("Please enter a valid email address.");
-                        return;
-                    }
-                    const templateParams = {
-                        myname: name.value,
-                        name: mail.value,
-                        message: msg.value,
-                    };
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert("Please complete the reCAPTCHA verification.");
+            } else {
+                submitButton.disabled = true;
+                loader.classList.remove('d-none');
+                try {
+                    if (mail.value.trim() !== "" && msg.value.trim() !== "") {
+                        if (!validateEmail(mail.value)) {
+                            alert("Please enter a valid email address.");
+                            return;
+                        }
+                        const templateParams = {
+                            myname: name.value,
+                            name: mail.value,
+                            message: msg.value,
+                        };
 
-                    await emailjs.send('service_6tf4zbn', 'template_76d44zd', templateParams)
-                        .then((response) => {
-                            alert("Message sent successfully!");
-                            mail.value = "";
-                            msg.value = "";
-                        })
-                        .catch((error) => {
-                            console.log('FAILED...', error);
-                            alert("Failed to send message. Please try again later.");
-                        });
-                } else {
-                    alert("Please fill in the essential details.");
+                        await emailjs.send('service_6tf4zbn', 'template_76d44zd', templateParams)
+                            .then((response) => {
+                                alert("Message sent successfully!");
+                                mail.value = "";
+                                msg.value = "";
+                            })
+                            .catch((error) => {
+                                console.log('FAILED...', error);
+                                alert("Failed to send message. Please try again later.");
+                            });
+                    } else {
+                        alert("Please fill in the essential details.");
+                    }
+                } catch (error) {
+                    alert("An unexpected error occurred. Please try again later.");
+                } finally {
+                    submitButton.disabled = false;
+                    loader.classList.add('d-none');
                 }
-            } catch (error) {
-                alert("An unexpected error occurred. Please try again later.");
-            } finally {
-                submitButton.disabled = false;
-                loader.classList.add('d-none');
             }
         });
 
