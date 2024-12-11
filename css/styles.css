@@ -12772,3 +12772,41 @@ pre {
 }
 
 
+#msgme{
+    width:20rem;
+    height:15rem;
+    margin:auto;
+    display:grid;
+    place-content:center;
+    align-content:center;
+    justify-content:center;
+    align-items:center;
+    border:groove;
+}
+#msgme input{
+    margin-top:.5rem;
+    border:transparent ;
+    border-bottom:3px solid blue;
+    outline:none;
+}
+
+#msg{
+    resize:none;
+    border:transparent ;
+    border-bottom:3px solid blue;
+    outline:none;
+    width:12rem;
+}
+#mail{
+    width:12rem;
+}
+#submit{
+    text-align:center;
+    padding:5px;
+    background:#000;
+    color:#fff;
+
+}
+
+
+

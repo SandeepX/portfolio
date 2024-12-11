@@ -106,8 +106,6 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
     typeEffect();
-
-
 });
 
 
