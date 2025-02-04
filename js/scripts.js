@@ -106,6 +106,10 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
     typeEffect();
+
+    const currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = currentYear;
+
 });
 
 
